@@ -23,11 +23,11 @@
 
                     <div class="mt-4 text-center">
                         <div class="mb-3">
-                            <a href="{{ route('home') }}" class="auth-logo">
-                                <img src="{{ asset('backend/assets/images/logo-dark.png') }}" height="30"
-                                    class="mx-auto logo-dark" alt="">
-                                <img src="{{ asset('backend/assets/images/logo-light.png') }}" height="30"
-                                    class="mx-auto logo-light" alt="">
+                            <a href="{{ route('dashboard') }}" class="auth-logo">
+                                <img src="{{ asset('logo/logo.png') }}" height="100" class="mx-auto logo-dark"
+                                    alt="">
+                                <img src="{{ asset('logo/logo.png') }}" height="100" class="mx-auto logo-light"
+                                    alt="">
                             </a>
                         </div>
                     </div>

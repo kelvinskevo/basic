@@ -39,12 +39,6 @@
 
         <div class="d-flex">
 
-
-
-
-
-
-
             <div class="dropdown d-none d-lg-inline-block ms-1">
                 <button type="button" class="btn header-item noti-icon waves-effect" data-toggle="fullscreen">
                     <i class="ri-fullscreen-line"></i>
@@ -63,7 +57,8 @@
                 </button>
                 <div class="dropdown-menu dropdown-menu-end">
                     <!-- item-->
-                    <a class="dropdown-item" href="#"><i class="align-middle ri-user-line me-1"></i>
+                    <a class="dropdown-item" href="{{ route('admin.profile') }}"><i
+                            class="align-middle ri-user-line me-1"></i>
                         Profile</a>
                     <a class="dropdown-item" href="#"><i class="align-middle ri-wallet-2-line me-1"></i> My
                         Wallet</a>

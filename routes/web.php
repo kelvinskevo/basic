@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\AdminController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,3 +29,9 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__ . '/auth.php';
+
+Route::group(['prefix' => 'admin'], function () {
+    Route::get('profile', [AdminController::class, 'profile'])->name('admin.profile');
+    Route::get('edit', [AdminController::class, 'editprofile'])->name('edit.profile');
+    // Add other routes for AdminController if needed
+});
