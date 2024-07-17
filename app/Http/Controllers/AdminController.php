@@ -38,6 +38,34 @@ class AdminController extends Controller
         }
     }
 
+    public function storeprofile(Request $request)
+    {
+        if (Auth::check()) {
+            $id = Auth::user()->id;
+            $data = User::find($id);
+            $data->name = $request->name;
+            $data->email = $request->email;
+            $data->username = $request->username;
+
+            if ($request->file('profile_image')) {
+                $file = $request->file('profile_image');
+
+                // Corrected to use 'date' instead of 'data'
+                $filename = date('YmdHi') . $file->getClientOriginalName();
+                $file->move(public_path('uploads/admin_images'), $filename);
+                $data['profile_image'] = $filename;
+            }
+
+            $data->save();
+
+            return redirect()->route('admin.profile');
+        } else {
+            // Redirect to login page or show an error message
+            return redirect()->route('login')->with('error', 'You must be logged in to view this page.');
+        }
+    }
+
+
     /**
      * Show the form for creating a new resource.
      *

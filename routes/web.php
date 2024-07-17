@@ -33,5 +33,6 @@ require __DIR__ . '/auth.php';
 Route::group(['prefix' => 'admin'], function () {
     Route::get('profile', [AdminController::class, 'profile'])->name('admin.profile');
     Route::get('edit', [AdminController::class, 'editprofile'])->name('edit.profile');
+    Route::post('store', [AdminController::class, 'storeprofile'])->name('store.profile');
     // Add other routes for AdminController if needed
 });

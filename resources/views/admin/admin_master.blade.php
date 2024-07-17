@@ -30,6 +30,9 @@
     <link href="{{ asset('backend/assets/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
     <!-- App Css-->
     <link href="{{ asset('backend/assets/css/app.min.css') }}" id="app-style" rel="stylesheet" type="text/css" />
+    <!-- toastr css-->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
+
 
 </head>
 
@@ -67,7 +70,7 @@
     <!-- Right Sidebar -->
     <div class="right-bar">
         <div data-simplebar class="h-100">
-            <div class="rightbar-title d-flex align-items-center px-3 py-4">
+            <div class="px-3 py-4 rightbar-title d-flex align-items-center">
 
                 <h5 class="m-0 me-2">Settings</h5>
 
@@ -78,14 +81,14 @@
 
             <!-- Settings -->
             <hr class="mt-0" />
-            <h6 class="text-center mb-0">Choose Layouts</h6>
+            <h6 class="mb-0 text-center">Choose Layouts</h6>
 
             <div class="p-4">
                 <div class="mb-2">
                     <img src="assets/images/layouts/layout-1.jpg" class="img-fluid img-thumbnail" alt="layout-1">
                 </div>
 
-                <div class="form-check form-switch mb-3">
+                <div class="mb-3 form-check form-switch">
                     <input class="form-check-input theme-choice" type="checkbox" id="light-mode-switch" checked>
                     <label class="form-check-label" for="light-mode-switch">Light Mode</label>
                 </div>
@@ -93,7 +96,7 @@
                 <div class="mb-2">
                     <img src="assets/images/layouts/layout-2.jpg" class="img-fluid img-thumbnail" alt="layout-2">
                 </div>
-                <div class="form-check form-switch mb-3">
+                <div class="mb-3 form-check form-switch">
                     <input class="form-check-input theme-choice" type="checkbox" id="dark-mode-switch"
                         data-bsStyle="assets/css/bootstrap-dark.min.css" data-appStyle="assets/css/app-dark.min.css">
                     <label class="form-check-label" for="dark-mode-switch">Dark Mode</label>
@@ -102,7 +105,7 @@
                 <div class="mb-2">
                     <img src="assets/images/layouts/layout-3.jpg" class="img-fluid img-thumbnail" alt="layout-3">
                 </div>
-                <div class="form-check form-switch mb-5">
+                <div class="mb-5 form-check form-switch">
                     <input class="form-check-input theme-choice" type="checkbox" id="rtl-mode-switch"
                         data-appStyle="assets/css/app-rtl.min.css">
                     <label class="form-check-label" for="rtl-mode-switch">RTL Mode</label>
@@ -145,6 +148,11 @@
     </script>
 
     <script src="{{ asset('backend/assets/js/pages/dashboard.init.js') }}"></script>
+
+    <!-- toastr -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+
 
     <!-- App js -->
     {{-- <script src="{{ asset('backend/assets/js/app.js') }}"></script> --}}

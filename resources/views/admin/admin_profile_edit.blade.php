@@ -11,7 +11,9 @@
 
                             <h4 class="card-title">Edit Profile Page</h4>
 
-                            <form action="">
+                            <form action="{{ route('store.profile') }}" method="post" enctype="multipart/form-data">
+                                @csrf
+
                                 <div class="mb-3 row">
                                     <label for="example-text-input" class="col-sm-2 col-form-label">Name</label>
                                     <div class="col-sm-10">
@@ -34,25 +36,15 @@
                                     <label for="example-text-input" class="col-sm-2 col-form-label">Username</label>
                                     <div class="col-sm-10">
                                         <input class="form-control" type="text" value="{{ $editData->username }}"
-                                            id="username" username="username">
+                                            id="username" name="username">
                                     </div>
                                 </div>
                                 <!-- end row -->
-
-                                <div class="mb-3 row">
-                                    <label for="example-text-input" class="col-sm-2 col-form-label">Name</label>
-                                    <div class="col-sm-10">
-                                        <input class="form-control" type="text" value="{{ $editData->name }}"
-                                            id="name" name="name">
-                                    </div>
-                                </div>
-                                <!-- end row -->
-
 
                                 <div class="mb-3 row">
                                     <label for="example-text-input" class="col-sm-2 col-form-label">Profile Picture</label>
                                     <div class="col-sm-10">
-                                        <input class="form-control" type="file" id="image" name="profile_pic">
+                                        <input class="form-control" type="file" id="image" name="profile_image">
                                     </div>
                                 </div>
                                 <!-- end row -->
@@ -61,7 +53,7 @@
                                     <label for="example-text-input" class="col-sm-2 col-form-label"></label>
                                     <div class="col-sm-10">
                                         <img id="showImage" class="rounded avatar-lg"
-                                            src="{{ asset('backend/assets/images/small/img-5.jpg') }}" alt="Card image cap">
+                                            src="{{ !empty($editData->profile_image) ? url('uploads/admin_images/' . $editData->profile_image) : url('uploads/no_image.jpg') }}">
                                     </div>
                                 </div>
                                 <!-- end row -->
