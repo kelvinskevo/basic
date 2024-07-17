@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use Illuminate\Support\Facades\File;
 
 class AdminController extends Controller
 {
@@ -50,7 +51,12 @@ class AdminController extends Controller
             if ($request->file('profile_image')) {
                 $file = $request->file('profile_image');
 
-                // Corrected to use 'date' instead of 'data'
+                // Delete the existing image if it exists
+                if (!empty($data->profile_image) && File::exists(public_path('uploads/admin_images/' . $data->profile_image))) {
+                    File::delete(public_path('uploads/admin_images/' . $data->profile_image));
+                }
+
+                $file = $request->file('profile_image');
                 $filename = date('YmdHi') . $file->getClientOriginalName();
                 $file->move(public_path('uploads/admin_images'), $filename);
                 $data['profile_image'] = $filename;
@@ -58,7 +64,12 @@ class AdminController extends Controller
 
             $data->save();
 
-            return redirect()->route('admin.profile');
+            $notification = array(
+                'message' => 'Admin Updated Successfully',
+                'alert-type' => 'success'
+            );
+
+            return redirect()->route('admin.profile')->with($notification);
         } else {
             // Redirect to login page or show an error message
             return redirect()->route('login')->with('error', 'You must be logged in to view this page.');
